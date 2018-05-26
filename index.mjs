@@ -147,14 +147,6 @@ export default () => {
       valuesArray = []
     }
 
-    return valuesArray.includes(passedString.toString())
-  })
-
-  Handlebars.registerHelper('contains', function (needle, haystack) {
-    if (typeof needle === 'undefined' || typeof haystack === 'undefined') {
-      return false
-    }
-
-    return haystack.trim().toLowerCase().indexOf(needle.toLowerCase()) !== -1
+    return valuesArray.trim().toLowerCase().includes(passedString.toString())
   })
 }
