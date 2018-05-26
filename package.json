@@ -1,13 +1,18 @@
 {
   "name": "heke",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A collection of handlebars helpers",
   "main": "index.mjs",
   "module": "index.mjs",
   "jsnext:main": "index.mjs",
   "esm": true,
   "scripts": {
-    "test": "mocha -r esm **/test.mjs"
+    "test": "mocha --require esm test.mjs **/test.mjs",
+    "test:coverage": "nyc --reporter=html --check-coverage --lines 75 --functions 75 --branches 75 npm test",
+    "versionbump:fix": "npm version patch --no-git-tag-version",
+    "versionbump:feature": "npm version minor --no-git-tag-version",
+    "versionbump:breakingchanges": "npm version major --no-git-tag-version",
+    "npm-publish": "npm publish"
   },
   "repository": {
     "type": "git",
@@ -29,8 +34,9 @@
   "devDependencies": {
     "babel-eslint": "^8.2.3",
     "handlebars": "^4.0.11",
-    "standard": "^11.0.1",
-    "moment": "^2.21.0"
+    "moment": "^2.21.0",
+    "nyc": "^11.8.0",
+    "standard": "^11.0.1"
   },
   "peerDependencies": {
     "handlebars": "^4.0.11",
