@@ -1,6 +1,6 @@
 {
   "name": "heke",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A collection of handlebars helpers",
   "main": "index.mjs",
   "module": "index.mjs",
@@ -29,18 +29,20 @@
   },
   "homepage": "https://github.com/lorengreenfield/heke#readme",
   "dependencies": {
-    "esm": "^3.0.38"
+    "degrees-to-direction": "^1.1.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
     "handlebars": "^4.0.11",
     "moment": "^2.21.0",
     "nyc": "^11.8.0",
-    "standard": "^11.0.1"
+    "standard": "^11.0.1",
+    "esm": "^3.0.0"
   },
   "peerDependencies": {
     "handlebars": "^4.0.11",
-    "moment": "^2.21.0"
+    "moment": "^2.21.0",
+    "esm": "^3.0.0"
   },
   "standard": {
     "parser": "babel-eslint"
