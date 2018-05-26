@@ -1,5 +1,6 @@
 import Handlebars from 'handlebars'
 import moment from 'moment'
+import d2d from 'degrees-to-direction'
 
 export default () => {
   Handlebars.registerHelper('trim', function (passedString) {
@@ -12,11 +13,12 @@ export default () => {
   })
 
   Handlebars.registerHelper('find', function (property, needle, haystack, returnProp) {
+    let found = haystack.find(i => i[property] === needle)
     if (typeof (returnProp) !== 'object') {
-      return find(haystack, [property, needle])[returnProp]
+      return found && found[returnProp]
     }
 
-    return find(haystack, [property, needle])
+    return found
   })
 
   Handlebars.registerHelper('prettyDate', function (passedString) {
@@ -88,8 +90,7 @@ export default () => {
 
     passedString = passedString.trim()
     let values = JSON.parse(passedArray)
-
-    let found = find(values, {search: passedString})
+    let found = values.find(value => value.search === passedString)
     let replaced
     if (found) {
       replaced = found.replaceWith
