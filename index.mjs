@@ -89,7 +89,7 @@ export default () => {
     }
 
     passedString = passedString.trim()
-    let values = JSON.parse(passedArray)
+    let values = JSON.parse(passedArray.replace(/\\"/g, '"'))
     let found = values.find(value => value.search === passedString)
     let replaced
     if (found) {
