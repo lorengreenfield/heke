@@ -143,11 +143,13 @@ export default () => {
   Handlebars.registerHelper('includes', function (passedString, values) {
     let valuesArray
     try {
-      valuesArray = JSON.parse(values)
+      valuesArray = values.trim().toLowerCase()
+      valuesArray = JSON.parse(valuesArray)
+      passedString = passedString.toString().trim().toLowerCase()
     } catch (err) {
       valuesArray = []
     }
 
-    return valuesArray.trim().toLowerCase().includes(passedString.toString())
+    return valuesArray.includes(passedString)
   })
 }
