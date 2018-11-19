@@ -24,6 +24,7 @@ heke()
 12. determineValue
 13. isNaN
 14. includes
+15. split
 
 ### trim
 The trim helper simply applies the trim() function to the string, for removing unneeded whitespace.
@@ -127,3 +128,11 @@ eg:
 ```
 If the name of the trail is either Gagnon, Fuddle Duddle, Expo, or Les Rapides, it'll display trail information.
 
+
+### split
+Simply uses the JavaScript split function to split a string into an array
+eg: 
+``` 
+{{first (split myString '-' )}}
+```
+Splits a string using the delimiter `-` and then returns the first element in the returned array. (Then uses swag to get the first element of the array)

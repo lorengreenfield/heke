@@ -154,6 +154,9 @@ export default () => {
   })
 
   Handlebars.registerHelper('split', function (passedString, delimiter) {
+    if(!passedString && passedString !== 0){
+      return []
+    }
     return passedString.split(delimiter)
   })
 }
