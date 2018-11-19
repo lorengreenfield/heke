@@ -152,4 +152,8 @@ export default () => {
 
     return valuesArray.includes(passedString)
   })
+
+  Handlebars.registerHelper('split', function (passedString, delimiter) {
+    return passedString.split(delimiter)
+  })
 }
