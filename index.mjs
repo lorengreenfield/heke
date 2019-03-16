@@ -62,12 +62,15 @@ export default () => {
     return new Handlebars.SafeString(date)
   })
 
-  Handlebars.registerHelper('now', function (passedString, timezone) {
+  Handlebars.registerHelper('now', function (passedString, timezone, offset) {
     if (!passedString) {
       return ''
     }
-    let date = moment.tz(timezone).format(passedString)
-    return new Handlebars.SafeString(date)
+    let date = moment.tz(timezone)
+    if (typeof offset !== 'object') {
+      date = date.add(offset, 'milliseconds')
+    }
+    return new Handlebars.SafeString(date.format(passedString))
   })
 
   Handlebars.registerHelper('deg2Dir', function (passedString) {
