@@ -120,7 +120,7 @@ export default () => {
 
     values.forEach(function (value) {
       let re = new RegExp(`\\${value}`, 'g')
-      passedString = passedString.replace(re, '')
+      passedString = passedString ? passedString.replace(re, '') : ''
     })
 
     return new Handlebars.SafeString(passedString)
