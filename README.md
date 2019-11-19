@@ -25,6 +25,7 @@ heke()
 13. isNaN
 14. includes
 15. split
+16. sum
 
 ### trim
 The trim helper simply applies the trim() function to the string, for removing unneeded whitespace.
@@ -136,3 +137,12 @@ eg:
 {{first (split myString '-' )}}
 ```
 Splits a string using the delimiter `-` and then returns the first element in the returned array. (Then uses swag to get the first element of the array)
+
+
+##$ sum
+Adds together all items that are numbers (it ignores any non numbers)
+eg:
+```
+{{sum 1 2 3 4 5}}
+```
+Results in '15'
