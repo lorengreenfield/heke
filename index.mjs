@@ -165,8 +165,9 @@ export default () => {
 
   Handlebars.registerHelper('sum', function (...numbers) {
     return numbers.reduce((sum, num) => {
-      if (!isNaN(num) && typeof num === 'number') {
-        return sum + num
+      const forcedNumber = Number(num)
+      if (!isNaN(forcedNumber) && typeof forcedNumber === 'number') {
+        return sum + forcedNumber
       } else {
         return sum
       }

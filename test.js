@@ -20,12 +20,14 @@ describe('Heke', () => {
     })
 
     it('Deals with non numbers', async () => {
-      const template = handlebars.compile('{{sum test1 test2 test3 test4 2 3 4 5}}')
+      const template = handlebars.compile('{{sum test1 test2 test3 test4 test5 test6 2 3 4 5}}')
       const result = template({
-        test1: 1,
+        test1: '1',
         test2: NaN,
         test3: {},
-        test4: []
+        test4: [],
+        test5: undefined,
+        test6: null
       })
 
       expect(result).to.equal('15')
