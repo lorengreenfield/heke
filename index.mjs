@@ -157,9 +157,19 @@ export default () => {
   })
 
   Handlebars.registerHelper('split', function (passedString, delimiter) {
-    if(!passedString){
+    if (!passedString) {
       return []
     }
     return passedString.split(delimiter)
+  })
+
+  Handlebars.registerHelper('sum', function (...numbers) {
+    return numbers.reduce((sum, num) => {
+      if (!isNaN(num) && typeof num === 'number') {
+        return sum + num
+      } else {
+        return sum
+      }
+    }, 0)
   })
 }
