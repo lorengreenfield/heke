@@ -1,6 +1,7 @@
 import Handlebars from 'handlebars'
 import moment from 'moment-timezone'
 import d2d from 'degrees-to-direction'
+import linkify from 'linkify-html'
 
 export default () => {
   Handlebars.registerHelper('trim', function (passedString) {
@@ -172,5 +173,9 @@ export default () => {
         return sum
       }
     }, 0)
+  })
+
+  Handlebars.registerHelper('linkify', function (passedString) {
+    return new Handlebars.SafeString(linkify(passedString, { defaultProtocol: 'https' }))
   })
 }
