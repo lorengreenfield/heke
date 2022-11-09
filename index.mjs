@@ -178,4 +178,11 @@ export default () => {
   Handlebars.registerHelper('linkify', function (passedString) {
     return new Handlebars.SafeString(linkify(passedString, { defaultProtocol: 'https' }))
   })
+
+  Handlebars.registerHelper('brFromNewLine', function(str) {
+    if(!str){
+      str = ''
+    }
+    return new Handlebars.SafeString(str.replace(/\r?\n|\r/g, '<br>'))
+  })
 }
