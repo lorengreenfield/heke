@@ -27,6 +27,7 @@ heke()
 15. split
 16. sum
 17. linkify
+18. brFromNewLine
 
 ### trim
 The trim helper simply applies the trim() function to the string, for removing unneeded whitespace.
@@ -151,3 +152,7 @@ Results in '15'
 
 ### linkify
 Uses the linkifyjs library to convert URLs to HTML hyperlinks
+
+
+### brFromNewLine
+Creates an html <br> tag from a text line break
