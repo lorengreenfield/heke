@@ -116,7 +116,7 @@ export default () => {
   Handlebars.registerHelper('strip', function (passedString, arg) {
     let values = [arg]
     if (arg.indexOf('[') === 0 && arg.indexOf(']') !== -1) {
-      values = JSON.parse(arg)
+      values = JSON.parse(arg.replace(/\\"/g, '"'))
     }
 
     values.forEach(function (value) {
@@ -128,7 +128,7 @@ export default () => {
   })
 
   Handlebars.registerHelper('determineValue', function (values, ...args) {
-    let vals = JSON.parse(values)
+    let vals = JSON.parse(values.replace(/\\"/g, '"'))
     let tests = args.filter(test => {
       return typeof test === 'string'
     }).map(test => {
@@ -148,7 +148,7 @@ export default () => {
     let valuesArray
     try {
       valuesArray = values.trim().toLowerCase()
-      valuesArray = JSON.parse(valuesArray)
+      valuesArray = JSON.parse(valuesArray.replace(/\\"/g, '"'))
       passedString = passedString.toString().trim().toLowerCase()
     } catch (err) {
       valuesArray = []
