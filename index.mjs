@@ -194,6 +194,6 @@ export default () => {
     if(passedString.string){
       passedString = passedString.string
     }
-    return new Handlebars.SafeString(passedString.replace(/\r?\n|\r/g, '<br>'))
+    return new Handlebars.SafeString(passedString.replace(/\r?\n|\r/g, '<br />'))
   })
 }
